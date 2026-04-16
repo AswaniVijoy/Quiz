@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>QuizForge</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      /*
+        IMPORTANT: Only html/body/#root need height:100% so React Native Web
+        can measure the full viewport. Do NOT set overflow on these — RNW
+        manages overflow itself on each View/ScrollView. Setting overflow:auto
+        here would create a second scroll context on the root that fights RNW.
+      */
+        html {
+        height: 100%;
+        }
+
+        body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #FFFAF0;
+        }
+
+        #root {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        }
+
+      /*
+        REMOVED: div[style*="overflow: hidden"] { overflow: auto !important; }
+        
+        This was the root cause of jitter and broken scrolling. RNW sets
+        overflow:hidden on layout containers intentionally. Overriding it with
+        !important turns every nested View into its own scroll context, creating
+        dozens of competing scrollable divs and causing exactly the jitter and
+        scroll-lock symptoms you saw.
+
+        RNW's ScrollView already sets overflow:auto/scroll on the correct div
+        internally — it does not need help from a global CSS rule.
+      */
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f0f4e8;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #6B8E23;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Georgia', serif; background: #FFFAF0; color: #2d3a1e; }
+button { font-family: 'Georgia', serif; }
+input, textarea, select { font-family: 'Georgia', serif; }

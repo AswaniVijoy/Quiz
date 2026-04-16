@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "QuizForge",
+    "slug": "quizforge",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "android": {
+      "package": "com.yourname.quizforge"
+    },
+    "plugins": ["expo-notifications"], 
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
